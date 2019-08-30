@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Number to words</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <style>
+      .card {
+        margin: 0 auto;
+        width: 50%;
+        height: 50%;
+        margin-top: 15%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-content">
+        <p class="title">
+          Number to words
+        </p>
+        <br />
+        <div class="select">
+          <select id="language">
+            <option>English</option>
+            <option>नेपाली</option>
+          </select>
+        </div>
+        <br /><br />
+        <div class="field">
+          <div class="control">
+            <input
+              class="input is-primary is-medium"
+              type="number"
+              minlength="0"
+              maxlength="13"
+              placeholder="Input number"
+              id="input"
+            />
+          </div>
+        </div>
+        <br />
+        <h2 class="subtitle center-text" id="output">Input numbers above...</h2>
+        <br />
+      </div>
+    </div>
+
     <script src="script-np.js"></script>
-</body>
+
+    <script>
+      const inputElem = document.getElementById("input");
+      const outputElem = document.getElementById("output");
+      inputElem.onkeyup = function() {
+        const value = inputElem.value.trim();
+        outputElem.innerHTML =
+          value && value.length <= 13 ? compute(value) : "Invalid";
+      };
+    </script>
+  </body>
 </html>
