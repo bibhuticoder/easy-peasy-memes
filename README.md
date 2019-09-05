@@ -9,3 +9,8 @@ Convert digits to formatted Nepali words
 
 ## Demo
 http://www.bibhutipoudyal.com.np/num-to-nepali-words/
+
+## Todos
+[] Support for english language
+[] Conversion of higher range numbers
+[] Build a separate library out of this code
