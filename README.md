@@ -11,6 +11,7 @@ Convert digits to formatted Nepali words
 http://www.bibhutipoudyal.com.np/num-to-nepali-words/
 
 ## Todos
-[] Support for english language
-[] Conversion of higher range numbers
-[] Build a separate library out of this code
+- [x] User interface for demonstration
+- [ ] Support for english language
+- [ ] Conversion of higher range numbers
+- [ ] Build a separate library out of this code
