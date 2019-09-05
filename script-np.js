@@ -1,15 +1,15 @@
 const DIGITS = [
-  "सुन्ना",
+  "शुन्य",
   "एक",
   "दुई",
-  "तिन",
+  "तीन",
   "चार",
   "पाँच",
   "छ",
   "सात",
   "आठ",
   "नौ",
-  "दस",
+  "दश",
   "एघार",
   "बाह्र",
   "तेह्र",
@@ -19,41 +19,41 @@ const DIGITS = [
   "सत्र",
   "अठार",
   "उन्नाइस",
-  "बिस",
+  "विस",
   "एक्काइस",
   "बाइस",
-  "तेइस",
-  "चौबिस",
+  "तेईस",
+  "चौविस",
   "पच्चिस",
   "छब्बिस",
   "सत्ताइस",
-  "अट्ठाइस",
+  "अठ्ठाईस",
   "उनन्तिस",
   "तिस",
-  "एकतिस",
+  "एकत्तिस",
   "बत्तिस",
   "तेत्तिस",
   "चौँतिस",
   "पैँतिस",
   "छत्तिस",
-  "सैँतिस",
-  "अठतिस",
-  "उनन्चालिस",
-  "चालिस",
-  "एकचालिस",
-  "बयालिस",
-  "त्रिचालिस",
-  "चवालिस",
-  "पैँतालिस",
-  "छयालिस",
-  "सतचालिस",
-  "अठचालिस",
+  "सैँतीस",
+  "अठतीस",
+  "उनन्चालीस",
+  "चालीस",
+  "एकचालीस",
+  "बयालीस",
+  "त्रियालीस",
+  "चवालीस",
+  "पैँतालीस",
+  "छयालीस",
+  "सच्चालीस",
+  "अठचालीस",
   "उनन्चास",
   "पचास",
   "एकाउन्न",
   "बाउन्न",
   "त्रिपन्न",
-  "चवन्न",
+  "चउन्न",
   "पचपन्न",
   "छपन्न",
   "सन्ताउन्न",
@@ -63,8 +63,8 @@ const DIGITS = [
   "एकसट्ठी",
   "बयसट्ठी",
   "त्रिसट्ठी",
-  "चौसट्ठी",
-  "पैँसट्ठी",
+  "चौंसट्ठी",
+  "पैंसट्ठी",
   "छयसट्ठी",
   "सतसट्ठी",
   "अठसट्ठी",
@@ -90,23 +90,20 @@ const DIGITS = [
   "अठासी",
   "उनान्नब्बे",
   "नब्बे",
-  "एकानब्बे",
+  "एकान्नब्बे",
   "बयानब्बे",
-  "त्रियानब्बे",
-  "चौरानब्बे",
+  "त्रियान्नब्बे",
+  "चौरान्नब्बे",
   "पन्चानब्बे",
-  "छयानब्बे",
-  "सन्तानब्बे",
-  "अन्ठानब्बे",
+  "छयान्नब्बे",
+  "सन्तान्नब्बे",
+  "अन्ठान्नब्बे",
   "उनान्सय",
-  "सय"
+  "एक सय"
 ];
-const DIGIT_PLACES = ["", "हजार", "लाख", "करोड", "अर्ब", "खर्ब"];
+const DIGIT_PLACES = ["हजार", "लाख", "करोड", "अर्ब", "खर्ब"];
 
 function computeWord(digit, place) {
-  if(digit === 0 && place > 1) return "";
-  else if(digit === 0 && place === 0) return DIGITS[0];
-
   return place === 0
     ? computeHundredsPlaceWord(digit)
     : computeGreaterPlaceWord(digit, place);
@@ -126,12 +123,24 @@ function computeHundredsPlaceWord(digit) {
 
 function computeGreaterPlaceWord(digit, place) {
   if (digit === 0) return "";
-  return DIGITS[digit] + " " + DIGIT_PLACES[place];
+
+  // -1 because DIGIT_PLACES start from thousand, excluding hundred
+  return DIGITS[digit] + " " + DIGIT_PLACES[place - 1];
 }
 
 function compute(number) {
-  let splited = splitNumber(number);
+  let parsedNum = parseInt(number);
+
+  // invalid number
+  if (len(parsedNum) > 13 || isNaN(parsedNum)) return "Invalid";
+
+  // directly map number 0...100
+  if (parsedNum <= 100) return DIGITS[parsedNum];
+
+  // split > 100 numbers
+  let splited = splitNumber(str(parsedNum));
   splited = splited.map((digit, place) => {
+    // place is a misnomer here, its calculated as per the requirements of this algorithm
     place = splited.length - place - 1;
     return computeWord(digit, place);
   });
@@ -162,6 +171,7 @@ function splitNumber(number) {
   return collection.reverse();
 }
 
+// helper methods
 function len(digit) {
   return str(digit).length;
 }

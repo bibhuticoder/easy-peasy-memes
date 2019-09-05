@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Number to words</title>
+    <title>Number to Nepali words</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
     />
     <style>
       .card {
-        margin: 0 auto;
-        width: 50%;
-        height: 50%;
-        margin-top: 15%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
+        padding: 10px;
       }
     </style>
   </head>
@@ -23,15 +24,8 @@
     <div class="card">
       <div class="card-content">
         <p class="title">
-          Number to words
+          Number to नेपाली words
         </p>
-        <br />
-        <div class="select">
-          <select id="language">
-            <option>English</option>
-            <option>नेपाली</option>
-          </select>
-        </div>
         <br /><br />
         <div class="field">
           <div class="control">
@@ -59,8 +53,7 @@
       const outputElem = document.getElementById("output");
       inputElem.onkeyup = function() {
         const value = inputElem.value.trim();
-        outputElem.innerHTML =
-          value && value.length <= 13 ? compute(value) : "Invalid";
+        outputElem.innerHTML = compute(value);
       };
     </script>
   </body>
