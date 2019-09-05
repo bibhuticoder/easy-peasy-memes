@@ -104,27 +104,28 @@ const DIGITS = [
 const DIGIT_PLACES = ["", "हजार", "लाख", "करोड", "अर्ब", "खर्ब"];
 
 function computeWord(digit, place) {
-  if (place === 0) {
-    // ones, tens, hundreds place
-    return computeHundredsPlaceWord(digit);
-  } else {
-    // greater than hunderds place
-    return computeGreaterPlaceWord(digit, place);
-  }
+  if(digit === 0 && place > 1) return "";
+  else if(digit === 0 && place === 0) return DIGITS[0];
+
+  return place === 0
+    ? computeHundredsPlaceWord(digit)
+    : computeGreaterPlaceWord(digit, place);
 }
 
 function computeHundredsPlaceWord(digit) {
-  if (len(digit) === 0) return "";
-  else if (len(digit) <= 2) return DIGITS[digit];
+  if (len(digit) === 0 || digit === 0) return "";
+  if (len(digit) <= 2) return DIGITS[digit];
   else if (len(digit) === 3) {
     if (digit === 100) return DIGITS[digit];
+    else if (digit % 100 === 0) return DIGITS[str(digit)[0]] + " सय";
     const hundreds = DIGITS[str(digit)[0]];
-    const tens = DIGITS[str(digit)[1] + str(digit)[2]];
+    const tens = DIGITS[parseInt(str(digit)[1] + str(digit)[2])];
     return hundreds + " सय " + tens;
   }
 }
 
 function computeGreaterPlaceWord(digit, place) {
+  if (digit === 0) return "";
   return DIGITS[digit] + " " + DIGIT_PLACES[place];
 }
 
@@ -134,13 +135,13 @@ function compute(number) {
     place = splited.length - place - 1;
     return computeWord(digit, place);
   });
-  return splited.join(", ");
+  return splited.filter(n => n.length > 0).join(", ");
 }
 
 function splitNumber(number) {
   let collection = [];
 
-  //first three
+  //first three digits
   collection.push(number % 1000);
   number = number.substr(0, number.length - 3);
 
@@ -148,14 +149,21 @@ function splitNumber(number) {
   while (number.length) {
     let parsedNum = parseInt(number);
     let chunk = parsedNum % 100;
-    number = number.replace(chunk, "");
-    collection.push(chunk);
+    if (parsedNum % 100 === 0) {
+      // cases of 100, 200, 300...
+      // parsedNum % 100 gives single Zero(0) instead of double zeros(00)
+      // it creates anomaly during replace operation below
+      chunk += "0";
+      number = number.replace(chunk, "");
+      chunk = parseInt(chunk);
+    } else number = number.replace(chunk, "");
+    collection.push(parseInt(chunk));
   }
   return collection.reverse();
 }
 
 function len(digit) {
-  return digit.toString().length;
+  return str(digit).length;
 }
 
 function str(digit) {
