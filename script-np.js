@@ -129,7 +129,7 @@ function computeGreaterPlaceWord(digit, place) {
 }
 
 function compute(number) {
-  let parsedNum = parseInt(number);
+  let parsedNum = Math.abs(parseInt(number));
 
   // invalid number
   if (len(parsedNum) > 13 || isNaN(parsedNum)) return "Invalid";
