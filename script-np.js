@@ -147,31 +147,39 @@ function compute(number) {
   return splited.filter(n => n.length > 0).join(", ");
 }
 
+// number: String, return [Number]
 function splitNumber(number) {
   let collection = [];
 
-  //first three digits
-  collection.push(number % 1000);
-  number = number.substr(0, number.length - 3);
+  //last three digits
+  collection.push(parseInt(getLastNChars(number, 3)));
+  number = removeLastNChars(number, 3);
 
-  //remaining digits
+  //remaining digits in 2 digit chunk
   while (number.length) {
-    let parsedNum = parseInt(number);
-    let chunk = parsedNum % 100;
-    if (parsedNum % 100 === 0) {
-      // cases of 100, 200, 300...
-      // parsedNum % 100 gives single Zero(0) instead of double zeros(00)
-      // it creates anomaly during replace operation below
-      chunk += "0";
-      number = number.replace(chunk, "");
-      chunk = parseInt(chunk);
-    } else number = number.replace(chunk, "");
-    collection.push(parseInt(chunk));
+    if(number.length >= 2){
+      let chunk = getLastNChars(number, 2);
+      number = removeLastNChars(number, 2);
+      collection.push(parseInt(chunk));
+    } else {
+      collection.push(parseInt(number));
+      number = "";
+    }
   }
+
+  // Split was done from ones place, so need to reverse it
   return collection.reverse();
 }
 
 // helper methods
+function getLastNChars(str, n){
+  return str.substr(str.length-n, str.length);
+}
+
+function removeLastNChars(str, n){
+  return str.substr(0, str.length - n);
+}
+
 function len(digit) {
   return str(digit).length;
 }
