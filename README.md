@@ -14,4 +14,4 @@ http://www.bibhutipoudyal.com.np/num-to-nepali-words/
 - [x] User interface for demonstration
 - [ ] Support for english language
 - [ ] Conversion of higher range numbers
-- [ ] Bug fixes for minor anomalies
+- [ ] Bug fixes for minor conversion anomalies
