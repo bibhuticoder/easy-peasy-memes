@@ -149,6 +149,9 @@ function compute(number) {
 
 // number: String, return [Number]
 function splitNumber(number) {
+  // don't split if <= 2 digit number
+  if (len(number) <= 2) return [number];
+
   let collection = [];
 
   //last three digits
@@ -157,7 +160,7 @@ function splitNumber(number) {
 
   //remaining digits in 2 digit chunk
   while (number.length) {
-    if(number.length >= 2){
+    if (number.length >= 2) {
       let chunk = getLastNChars(number, 2);
       number = removeLastNChars(number, 2);
       collection.push(parseInt(chunk));
@@ -172,11 +175,11 @@ function splitNumber(number) {
 }
 
 // helper methods
-function getLastNChars(str, n){
-  return str.substr(str.length-n, str.length);
+function getLastNChars(str, n) {
+  return str.substr(str.length - n, str.length);
 }
 
-function removeLastNChars(str, n){
+function removeLastNChars(str, n) {
   return str.substr(0, str.length - n);
 }
 
