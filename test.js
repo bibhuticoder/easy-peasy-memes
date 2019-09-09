@@ -40,13 +40,25 @@ const TEST_DATA = {
   }
 };
 
-function test(language) {
+function test() {
   const report = [];
-  TEST_DATA[language].inputs.forEach((input, i) => {
-    const output = compute(input);
-    const status =
-      TEST_DATA[language].outputs[i].trim() === output.trim() ? "success" : "failure";
-    report.push({ status, input, output, stdOutput: TEST_DATA[language].outputs[i]});
+
+  Object.keys(TEST_DATA).forEach(language => {
+    TEST_DATA[language].inputs.forEach((input, i) => {
+      const output = mapToWords(input, language);
+      const status =
+        TEST_DATA[language].outputs[i].trim() === output.trim()
+          ? "success"
+          : "failure";
+      report.push({
+        language,
+        status,
+        input,
+        output,
+        stdOutput: TEST_DATA[language].outputs[i]
+      });
+    });
   });
+
   return report;
 }

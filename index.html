@@ -27,6 +27,13 @@
           Number to नेपाली words
         </p>
         <br /><br />
+        <div class="select">
+          <select id="selectLang">
+            <option value="np">नेपाली</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <br><br>
         <div class="field">
           <div class="control">
             <input
@@ -51,10 +58,16 @@
     <script>
       const inputElem = document.getElementById("input");
       const outputElem = document.getElementById("output");
-      inputElem.onkeyup = function() {
+      let lang = "np";
+      inputElem.onkeyup = performMap;
+      document.getElementById("selectLang").onchange = (e) => {
+        lang = e.srcElement.value;
+        performMap();
+      }
+      function performMap(){
         const value = inputElem.value.trim();
-        outputElem.innerHTML = compute(value);
-      };
+        outputElem.innerHTML = mapToWords(value, lang);
+      }
     </script>
   </body>
 </html>
