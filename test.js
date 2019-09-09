@@ -28,12 +28,12 @@ const TEST_DATA = {
       "10203040"
     ],
     outputs: [
-      "Twelve Thousand, Three hundred and Forty Five",
+      "Twelve Thousand, Three Hundred and Forty Five",
       "Seven Hundred",
-      "One hundred and Five",
-      "One hundred and Ten",
+      "One Hundred and Five",
+      "One Hundred and Ten",
       "Thirty",
-      "One Lakh, Twenty Three Thousand, Four hundred and Forty Five",
+      "One Lakh, Twenty Three Thousand, Four Hundred and Forty Five",
       "One Lakh, One",
       "One Crore, Two Lakh, Three Thousand, Forty"
     ]
@@ -45,8 +45,8 @@ function test(language) {
   TEST_DATA[language].inputs.forEach((input, i) => {
     const output = compute(input);
     const status =
-      TEST_DATA[language].outputs[i] === output ? "success" : "failure";
-    report.push({ status, input, output });
+      TEST_DATA[language].outputs[i].trim() === output.trim() ? "success" : "failure";
+    report.push({ status, input, output, stdOutput: TEST_DATA[language].outputs[i]});
   });
   return report;
 }

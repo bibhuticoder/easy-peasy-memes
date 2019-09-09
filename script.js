@@ -56,24 +56,9 @@ function computeHundredsPlaceWord(digit) {
   }
   // 100, 101, 1001 ....
   else if (digit > 99) {
-    // multiple of hundred
-    if (digit % 100 === 0) return DIGITS[str(digit)[0]] + " Hundred";
-
-    const hundreds = DIGITS[str(digit)[0]];
-    if (hundreds === "0")
-      return computeHundredsPlaceWord(str(digit)[0] + str(digit)[1]);
-
-    let tens = "";
-    if (digit < 120)
-      return (
-        hundreds +
-        " hundred and " +
-        computeHundredsPlaceWord(str(digit)[1] + str(digit)[2])
-      );
-    else tens = str(digit)[1] === "0" ? "" : DIGIT_TENS[str(digit)[1]];
-
-    const ones = str(digit)[2] === "0" ? "" : DIGITS[str(digit)[2]];
-    return hundreds + " hundred and " + tens + " " + ones;
+      const hundreds = (DIGITS[str(digit)[0]] === "0") ? "" : DIGITS[str(digit)[0]] + " Hundred ";
+      const tens = (digit % 100 === 0) ? "" : computeHundredsPlaceWord(str(digit)[1] + str(digit)[2]);
+      return hundreds + (tens !== "" ? "and " + tens : "");
   }
 }
 
