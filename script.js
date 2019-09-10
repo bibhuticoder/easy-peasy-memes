@@ -296,22 +296,4 @@
 
   // expose the required function only
   window.mapToWords = mapToWords;
-
-  window.seperateByComma = (number) => {
-    if (len(number) <= 2) return [number];
-    let collection = [];
-    collection.push(getLastNChars(number, 3));
-    number = removeLastNChars(number, 3);
-    while (number.length) {
-      if (number.length >= 2) {
-        let chunk = getLastNChars(number, 2);
-        number = removeLastNChars(number, 2);
-        collection.push(chunk);
-      } else {
-        collection.push(number);
-        number = "";
-      }
-    }
-    return collection.reverse();
-  }
 })();
