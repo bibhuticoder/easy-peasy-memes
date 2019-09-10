@@ -240,7 +240,7 @@
       if (parsedNum <= 100) return DATA[lang].DIGITS[parsedNum];
     }
 
-    let splited = splitNumber(number);
+    let splited = splitNumber(parsedNum);
     splited = splited.map((digit, place) => {
       place = splited.length - place - 1;
       return computeWord(digit, place);
@@ -276,12 +276,14 @@
   }
 
   // helper methods
-  function getLastNChars(str, n) {
-    return str.substr(str.length - n, str.length);
+  function getLastNChars(string, n) {
+    string = str(string);
+    return string.substr(string.length - n, string.length);
   }
 
-  function removeLastNChars(str, n) {
-    return str.substr(0, str.length - n);
+  function removeLastNChars(string, n) {
+    string = str(string);
+    return string.substr(0, string.length - n);
   }
 
   function len(digit) {
@@ -294,4 +296,22 @@
 
   // expose the required function only
   window.mapToWords = mapToWords;
+
+  window.seperateByComma = (number) => {
+    if (len(number) <= 2) return [number];
+    let collection = [];
+    collection.push(getLastNChars(number, 3));
+    number = removeLastNChars(number, 3);
+    while (number.length) {
+      if (number.length >= 2) {
+        let chunk = getLastNChars(number, 2);
+        number = removeLastNChars(number, 2);
+        collection.push(chunk);
+      } else {
+        collection.push(number);
+        number = "";
+      }
+    }
+    return collection.reverse();
+  }
 })();
