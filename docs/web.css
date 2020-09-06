@@ -1,0 +1,278 @@
+.overlay[data-v-701ac82d] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.modal[data-v-701ac82d] {
+  max-width: 500px;
+  min-height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 450px;
+  padding: 0.25rem;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 11;
+  text-align: center;
+}
+.modal .memeLink[data-v-701ac82d] {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.modal .memeLink a[data-v-701ac82d] {
+      margin-left: 1.5rem;
+      font-size: 1rem;
+      color: #373737;
+}
+.modal .memeLink .btnCancel[data-v-701ac82d] {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      transform: translate(60%, -75%);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      color: white;
+      background-color: #ef5350;
+      box-shadow: 1px 1px 2px #f44336;
+}
+.modal .memePreview[data-v-701ac82d] {
+    width: 400px;
+    height: auto;
+    border-radius: 5px;
+}
+.modal .bottomNav[data-v-701ac82d] {
+    text-align: center;
+}
+.modal .bottomNav .title[data-v-701ac82d] {
+      margin-bottom: 0;
+      margin-top: 0.5rem;
+      color: #373737;
+}
+.modal .bottomNav .socialLinkList[data-v-701ac82d] {
+      display: flex;
+      justify-content: center;
+}
+.modal .bottomNav .socialLinkList .socialLinkListItem[data-v-701ac82d] {
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+}
+.modal .bottomNav .socialLinkList .socialLinkListItem img[data-v-701ac82d] {
+          width: 32px;
+          height: 32px;
+          margin: 0.5rem;
+}
+
+.memeGenerator[data-v-008df3fa] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #90caf9;
+  font-family: "Comic Neue";
+}
+.memeGenerator .btn[data-v-008df3fa] {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: #373737;
+    border-radius: 3px;
+    transition: all 0.25s ease-in-out;
+}
+.memeGenerator .btn.--active[data-v-008df3fa] {
+      background-color: white;
+}
+.memeGenerator .btn[data-v-008df3fa]:hover {
+      background-color: white;
+}
+.memeGenerator .hidden[data-v-008df3fa] {
+    display: none;
+}
+.memeGenerator .credits[data-v-008df3fa] {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #373737;
+}
+.memeGenerator .credits a[data-v-008df3fa] {
+      color: #373737;
+}
+.memeGenerator .memeWrapper[data-v-008df3fa] {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    text-align: center;
+}
+.memeGenerator .memeWrapper .toolbar[data-v-008df3fa] {
+      display: flex;
+      flex-direction: column;
+      margin-right: 5px;
+}
+.memeGenerator .memeWrapper .toolbar .btn[data-v-008df3fa] {
+        height: 32px;
+        width: 32px;
+        margin-bottom: 5px;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        font-size: 1rem;
+        text-align: center;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper[data-v-008df3fa] {
+        position: relative;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions[data-v-008df3fa] {
+          position: absolute;
+          top: 0;
+          left: calc(100% + 10px);
+          background-color: white;
+          width: 200px;
+          padding: 0.5rem;
+          border-radius: 5px;
+          z-index: 100;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions[data-v-008df3fa]:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0%;
+            transform: translateY(100%);
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right-color: white;
+            border-left: 0;
+            margin-top: -10px;
+            margin-left: -10px;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions input[data-v-008df3fa],
+          .memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions select[data-v-008df3fa] {
+            width: 80px;
+            border: 1px solid #373737;
+            outline: none;
+            padding: 0.25rem;
+            border-radius: 3px;
+            background-color: white;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions select[data-v-008df3fa] {
+            width: 90px;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions input[type="color"][data-v-008df3fa] {
+            padding: 0.15rem 0.25rem;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions table[data-v-008df3fa] {
+            width: 100%;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions table td.label[data-v-008df3fa] {
+              font-size: 0.8rem;
+              text-align: left;
+}
+.memeGenerator .memeWrapper .toolbar .memeOptionsWrapper .memeOptions table td.input[data-v-008df3fa] {
+              padding-left: 1rem;
+}
+.memeGenerator .memeWrapper .canvasWrapper #canvas[data-v-008df3fa] {
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.memeGenerator .memeWrapper .canvasWrapper .bottomNav[data-v-008df3fa] {
+      display: flex;
+      justify-content: center;
+}
+.memeGenerator .memeWrapper .canvasWrapper .bottomNav .btn[data-v-008df3fa] {
+        display: flex;
+        margin: 10px;
+}
+.memeGenerator .memeWrapper .canvasWrapper .bottomNav .btn i[data-v-008df3fa] {
+          margin-right: 5px;
+          font-size: 1rem;
+}
+
+.appDetails {
+  font-family: "Comic Neue";
+  color: #373737;
+}
+.appDetails .appIcon {
+    display: block;
+    margin: 0 auto;
+    margin-top: -5rem;
+}
+.appDetails .title {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 3rem;
+    text-align: center;
+}
+.appDetails .title .version {
+      font-size: 0.7rem;
+}
+.appDetails .subtitle {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.appDetails .details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 0 4rem;
+}
+.appDetails .details .text {
+      padding-left: 4rem;
+      font-size: 1.1rem;
+      line-height: 1.8rem;
+}
+.appDetails .details .btnDownloadExtensionWrapper {
+      margin-top: 2rem;
+      text-align: left;
+}
+.appDetails .details .btnDownloadExtensionWrapper a .btnDownloadExtension {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #90caf9;
+        font-size: 1.3rem;
+        padding: 1rem 2rem;
+        color: black;
+        text-decoration: none;
+}
+.appDetails .details .btnDownloadExtensionWrapper a:hover {
+        background-color: #78bef8;
+}
+.appDetails .album {
+    margin-top: 8em;
+    text-align: center;
+}
+.appDetails .album .imagesList {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+}
+.appDetails .album .imagesList .imageListItem {
+        margin: 1rem;
+}
+.appDetails .album .buyCoffee {
+      display: block;
+      margin-top: 2rem;
+}
+
+.memeGeneratorApp {
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+}
+

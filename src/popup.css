@@ -1,0 +1,70 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Comic Neue";
+    src: url("assets/fonts/ComicNeue-Bold.ttf");
+}
+
+.popupContainer {
+    height: 200px;
+    width: 250px;
+    padding: 0.5rem 1rem;
+    margin-top: -1.5rem;
+    text-align: center;
+    font-family: "Comic Neue";
+    border-radius: 5px;
+    /* background-color: #90caf9; */
+}
+
+.title {
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+    font-family: "Comic Neue";
+    font-size: 1.5rem;
+    color: #373737;
+}
+
+.version {
+    font-size: 0.7rem;
+    color: gray;
+}
+
+.content {
+    margin-top: 2rem;
+    color: #373737;
+}
+
+.btn {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    outline: none;
+    background-color: #90caf9;
+}
+
+.btn img {
+    align-self: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.credits {
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
+}
+.credits a{
+    color: #373737;
+}
+
+.love {
+    color: #f44336;
+}
