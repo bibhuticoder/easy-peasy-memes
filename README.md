@@ -1,24 +1,20 @@
-# easy-memes
+# easy-peasy-memes
 
-## Project setup
-```
-npm install
-```
+Browser extension and a web app to help you generate Memes easier and faster
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- 🌍 Generate memes from any image on the internet
+- ✂️ Capture screenshot & convert it to memes
+- 🧰 Both chrome extension & the web app
+- 🛠 Highly customizable configurations
+- ☁️ One Click Upload & Share to social media
+- 🗜️ Automatic image compression
+- 👋 Free & open source
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Demo
+- https://easy-peasy-memes.netlify.app/
+- [Chrome Extension](https://chrome.google.com/webstore/detail/easypeasymemes/fdohoeeblalffcllcggonkejgfapichh)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## development
+- `npm run dev`
+- `npm run watch`
+- `npm run build`
