@@ -7,7 +7,7 @@
     "watch": "watch 'npm run dev' ./src"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "compressorjs": "^1.0.6",
     "core-js": "^3.6.5",
     "fabric": "^4.1.0",
